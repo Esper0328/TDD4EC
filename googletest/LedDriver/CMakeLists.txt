@@ -18,6 +18,7 @@ enable_testing()
 add_executable(
   LedDriver
   LedDriverTest.cpp
+  LedDriver.c
 )
 target_link_libraries(
   LedDriver

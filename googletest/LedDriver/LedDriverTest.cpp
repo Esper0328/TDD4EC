@@ -14,3 +14,10 @@ TEST(LedDriver, LedsOffAfterCreate)
     EXPECT_EQ(0, virtualleds);
 }
 
+TEST(LedDriver, TurnOnLedOne)
+{
+    uint16_t virtualleds = 0;
+    LedDriver_Create(&virtualleds);
+    LedDriver_TurnOn(1);
+    EXPECT_EQ(1, virtualleds);
+}
