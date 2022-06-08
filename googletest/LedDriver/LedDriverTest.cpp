@@ -21,3 +21,12 @@ TEST(LedDriver, TurnOnLedOne)
     LedDriver_TurnOn(1);
     ASSERT_EQ(1, virtualleds);
 }
+
+TEST(LedDriver, TurnOffLedOne)
+{
+    uint16_t virtualleds;
+    LedDriver_Create(&virtualleds);
+    LedDriver_TurnOn(1);
+    LedDriver_TurnOff(1);
+    ASSERT_EQ(0, virtualleds);
+}
