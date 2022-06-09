@@ -19,15 +19,20 @@ TEST_F(LedDriverTest, LedsOffAfterCreate) {
 }
 
 TEST_F(LedDriverTest, TurnOnLedOne) {
-    virtualleds = 0;
     LedDriver_TurnOn(1);
     ASSERT_EQ(1, virtualleds);
 }
 
 TEST_F(LedDriverTest, TurnOffLedOne) {
-    virtualleds = 0;
     LedDriver_TurnOn(1);
     LedDriver_TurnOff(1);
     ASSERT_EQ(0, virtualleds);
 }
+/*
+TEST_F(LedDriverTest, TurnOnMultipleLeds) {
+    LedDriver_TurnOn(9);
+    LedDriver_TurnOn(8);
+    ASSERT_EQ(0x180, virtualleds);
 
+}
+*/
