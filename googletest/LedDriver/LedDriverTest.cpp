@@ -33,6 +33,13 @@ TEST_F(LedDriverTest, TurnOnMultipleLeds) {
     LedDriver_TurnOn(9);
     LedDriver_TurnOn(8);
     ASSERT_EQ(0x180, virtualleds);
-
 }
 
+TEST_F(LedDriverTest, TurnOffMultipleLeds) {
+    LedDriver_TurnOn(9);
+    LedDriver_TurnOn(8);
+    LedDriver_TurnOn(15);
+    LedDriver_TurnOff(9);
+    LedDriver_TurnOff(15);
+    ASSERT_EQ(0x80, virtualleds);
+}
