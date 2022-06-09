@@ -8,7 +8,19 @@ void LedDriver_Create(uint16_t* address) {
   *ledsAdrress = 0;
 }
 
-void LedDriver_TurnOn(int ledNumber) { *ledsAdrress |= BIT(ledNumber - 1); }
-void LedDriver_TurnOff(int ledNumber) { *ledsAdrress &= ~BIT(ledNumber - 1); }
+void LedDriver_TurnOn(int ledNumber) {
+  const int ledNo = ledNumber - 1;
+  if ((0 <= ledNo) && (ledNo < 16)) {
+    *ledsAdrress |= BIT(ledNo);
+  }
+}
+
+void LedDriver_TurnOff(int ledNumber) {
+  const int ledNo = ledNumber - 1;
+  if ((0 <= ledNo) && (ledNo < 16)) {
+    *ledsAdrress &= ~BIT(ledNo);
+  }
+}
+
 void LedDriver_Destroy(void) {}
 
